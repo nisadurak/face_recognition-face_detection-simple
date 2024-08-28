@@ -1,0 +1,125 @@
+/* Genel gövde stilleri */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    animation: backgroundAnimation 10s ease-in-out infinite alternate;
+}
+
+/* Arka plan animasyonu */
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #ffafbd, #ffc3a0); }
+    100% { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+}
+
+/* Ana konteyner stilleri */
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Başlık stilleri */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: -webkit-linear-gradient(#3498db, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    color: #34495e;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Kamera ve görüntü alanları */
+img {
+    margin: 20px 0;
+    border-radius: 15px;
+    max-width: 100%;
+    border: 4px solid #ecf0f1;
+    transition: transform 0.2s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Form stilleri */
+form {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:focus {
+    border-color: #9b59b6;
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 94, 98, 0.3);
+}
+
+input[type="submit"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(255, 94, 98, 0.2);
+}
+
+/* Yüklenen ve algılanan görüntü başlıkları */
+.uploaded-image, .detected-faces {
+    margin-top: 30px;
+    animation: fadeIn 1s ease both;
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

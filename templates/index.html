@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts ile yeni fontları ekleme -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Face Recognition Web App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Yüz Tanıma ve Algılama Web Uygulaması</h1>
+        <h2>Kamera Görüntüsü:</h2>
+        <div>
+            <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Camera Feed">
+        </div>
+        
+        <h2>Dosya Yükle ve İşle:</h2>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <input type="submit" value="Yükle ve İşle">
+        </form>
+
+        {% if filename %}
+            <div class="uploaded-image">
+                <h2>Yüklenen Görüntü:</h2>
+                <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+            </div>
+            
+            <div class="detected-faces">
+                <h2>Algılanan Yüzler:</h2>
+                <img src="{{ url_for('static', filename='detected_faces/' + filename) }}" alt="Detected Faces">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
